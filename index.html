@@ -1,34 +1,811 @@
-﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"
-  "http://www.w3.org/TR/html4/frameset.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-<title>imageUSB by PassMark® Software</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="jquery.js"></script>
-<script type="text/javascript" src="helpman_settings.js"></script>
-<script type="text/javascript" src="helpman_navigation.js"></script>
-<script type="text/javascript">
-<!--
-var defaulttopic="introduction_and_overview.htm";
-if (location.href.lastIndexOf("?") > 0) defaulttopic=location.href.substring(location.href.lastIndexOf("?")+1,location.href.length).replace(/:/g,"");
-document.write('<frameset cols="30%,*" frameborder="1" framespacing="1">');
-if (document.getElementById) {
-  document.write('<frame name="hmnavigation" src="hmcontent.htm" title="Navigation frame">'); }
-else {
-  document.write('<frame name="hmnavigation" src="hmcontent.htm" title="Navigation frame">'); }
-document.write('<frame name="hmcontent" src="' + defaulttopic + '" title="Content frame">');
-document.write('</frameset>');
-//-->
-</script>
-</head>
-<noscript>
-  <frameset cols="30%,*" frameborder="1" framespacing="1">
-    <frame name="hmnavigation" src="hmcontent.htm" title="Navigation frame">
-    <frame name="hmcontent" src="introduction_and_overview.htm" title="Content frame">
-    <noframes>
-      This page requires frames<br><a href="hmcontent.htm">Click here to view the table of contents without frames</a>
-    </noframes>
-  </frameset>
-</noscript>
-</html>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marca Viral – Sua Marca na Boca do Povo</title>
+  <link rel="preconnect" href__="https://fonts.googleapis.com" />
+  <link href__="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    :root {
+      --yellow: #ccff00;
+      --yellow-dark: #b8e600;
+      --bg: #0d0d0d;
+      --card: #1a1a1a;
+      --card2: #111111;
+      --text: #ffffff;
+      --muted: #a0a0a0;
+      --border: rgba(255,255,255,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ── UTILS ── */
+    .container { max-width: 600px; margin: 0 auto; padding: 0 20px; }
+    .section { padding: 80px 20px; }
+    .section-dark { background: var(--card2); }
+    .section-mid  { background: var(--card2); }
+    .section-alt  { background: #111111; }
+    .text-yellow  { color: var(--yellow); }
+    .text-muted   { color: var(--muted); }
+
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(204,255,0,0.10); border: 1px solid rgba(204,255,0,0.30);
+      border-radius: 999px; padding: 6px 16px;
+      color: var(--yellow); font-size: 12px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative; min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; text-align: center;
+      padding: 64px 20px; overflow: hidden;
+    }
+    #hero .bg-img {
+      position: absolute; inset: 0; z-index: 0;
+    }
+    #hero .bg-img img {
+      width: 100%; height: 100%; object-fit: cover; opacity: 0.15;
+    }
+    #hero .bg-img::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, #0a0a0a, rgba(13,13,13,0.95), #0d0d0d);
+    }
+    #hero .glow {
+      position: absolute; top: 80px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 600px; border-radius: 50%;
+      background: rgba(204,255,0,0.05); filter: blur(80px); z-index: 1;
+    }
+    #hero .content { position: relative; z-index: 2; max-width: 580px; }
+
+    #hero h1 {
+      font-size: clamp(2.4rem, 8vw, 3.8rem);
+      font-weight: 900; line-height: 1.05;
+      letter-spacing: -0.02em; margin: 20px 0 16px;
+    }
+    #hero .subtitle {
+      font-size: clamp(1rem, 3vw, 1.2rem);
+      color: #d0d0d0; line-height: 1.6; margin-bottom: 24px;
+    }
+    .use-cases {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 8px; margin-bottom: 40px;
+    }
+    .use-case-pill {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 999px; padding: 6px 14px;
+      font-size: 14px; color: #d0d0d0; font-weight: 500;
+    }
+
+    /* ── BUY BUTTON ── */
+    .buy-btn {
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      width: 100%; padding: 20px 32px;
+      background: linear-gradient(135deg, #f5d000, #e6bc00);
+      color: #111; font-weight: 900; font-size: 1.1rem;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      border: none; border-radius: 16px; cursor: pointer;
+      box-shadow: 0 8px 40px rgba(204,255,0,0.20);
+      transition: transform 0.15s, filter 0.15s, box-shadow 0.15s;
+      min-height: 64px;
+    }
+    .buy-btn:hover  { filter: brightness(1.1); transform: scale(1.02); box-shadow: 0 12px 50px rgba(204,255,0,0.35); }
+    .buy-btn:active { transform: scale(0.98); }
+    .buy-btn svg { width: 24px; height: 24px; flex-shrink: 0; }
+
+    /* ── URGENCY BAR ── */
+    .urgency-bar {
+      width: 100%;
+      background: linear-gradient(to right, rgba(127,29,29,0.8), rgba(120,53,15,0.8));
+      border: 1px solid rgba(239,68,68,0.30);
+      border-radius: 12px; padding: 14px 20px;
+      display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: center; gap: 12px; text-align: center;
+      margin-top: 16px;
+    }
+    .urgency-part { display: flex; align-items: center; gap: 8px; }
+    .urgency-part svg { width: 16px; height: 16px; flex-shrink: 0; animation: pulse 2s infinite; }
+    .urgency-red    { color: #fca5a5; font-size: 14px; font-weight: 700; }
+    .urgency-orange { color: #fdba74; font-size: 14px; font-weight: 700; }
+    .urgency-white  { color: #fff; font-size: 15px; font-weight: 800; }
+    .urgency-divider { display: none; width: 1px; height: 20px; background: rgba(239,68,68,0.4); }
+    @media(min-width:480px){ .urgency-divider { display: block; } }
+
+    /* ── COUNTDOWN ── */
+    .countdown-wrap { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 8px; }
+    .countdown-label { font-size: 13px; font-weight: 700; color: #fef08a; text-transform: uppercase; letter-spacing: 0.1em; }
+    .countdown-digits { display: flex; align-items: center; gap: 8px; }
+    .digit-block { display: flex; flex-direction: column; align-items: center; }
+    .digit-box {
+      background: rgba(0,0,0,0.6);
+      border: 1px solid rgba(204,255,0,0.35);
+      border-radius: 10px; padding: 8px 12px; min-width: 54px; text-align: center;
+    }
+    .digit-num { font-size: 1.8rem; font-weight: 900; color: var(--yellow); font-variant-numeric: tabular-nums; }
+    .digit-lbl { font-size: 10px; color: rgba(254,240,138,0.5); margin-top: 4px; font-family: monospace; }
+    .digit-sep { font-size: 1.5rem; font-weight: 900; color: var(--yellow); margin-bottom: 18px; }
+
+    /* ── BENEFITS ── */
+    .benefits-grid {
+      display: grid; grid-template-columns: 1fr;
+      gap: 16px; margin-top: 48px;
+    }
+    @media(min-width:480px){ .benefits-grid { grid-template-columns: 1fr 1fr; } }
+    .benefit-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 20px; padding: 24px;
+      transition: border-color 0.2s;
+    }
+    .benefit-card:hover { border-color: rgba(204,255,0,0.25); }
+    .benefit-emoji { font-size: 2rem; margin-bottom: 12px; }
+    .benefit-title { font-size: 15px; font-weight: 800; margin-bottom: 8px; }
+    .benefit-desc  { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+    /* ── HOW IT WORKS ── */
+    .steps { display: flex; flex-direction: column; gap: 24px; margin-top: 48px; }
+    .step  { display: flex; gap: 20px; align-items: flex-start; }
+    .step-num {
+      flex-shrink: 0; width: 56px; height: 56px; border-radius: 16px;
+      background: rgba(204,255,0,0.10); border: 1px solid rgba(204,255,0,0.20);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; font-weight: 900; color: var(--yellow);
+    }
+    .step-title { font-size: 17px; font-weight: 800; margin-bottom: 6px; }
+    .step-desc  { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials { display: flex; flex-direction: column; gap: 16px; margin-top: 48px; }
+    .testi-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 20px; padding: 24px;
+    }
+    .stars { display: flex; gap: 2px; margin-bottom: 12px; }
+    .stars svg { width: 16px; height: 16px; color: #facc15; fill: #facc15; }
+    .testi-text { font-size: 15px; color: #d0d0d0; line-height: 1.65; margin-bottom: 16px; }
+    .testi-author { display: flex; align-items: center; gap: 12px; }
+    .testi-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: 16px; color: #fff; flex-shrink: 0;
+    }
+    .testi-name { font-weight: 700; font-size: 14px; }
+    .testi-role { font-size: 12px; color: var(--muted); }
+
+    /* ── SCARCITY ── */
+    .scarcity-box {
+      background: linear-gradient(to right, rgba(120,30,20,0.4), rgba(100,40,10,0.4));
+      border: 1px solid rgba(251,146,60,0.4); border-radius: 20px;
+      padding: 24px; display: flex; gap: 16px; align-items: flex-start;
+    }
+    .scarcity-box svg { width: 32px; height: 32px; color: #fb923c; flex-shrink: 0; margin-top: 2px; }
+    .scarcity-title { font-weight: 900; font-size: 18px; margin-bottom: 8px; }
+    .scarcity-text  { font-size: 14px; color: #d0d0d0; line-height: 1.6; }
+
+    /* ── DEMO SECTION ── */
+    .track-btns { display: flex; gap: 8px; margin-bottom: 16px; }
+    .track-btn {
+      flex: 1; padding: 10px 12px; border-radius: 12px;
+      font-size: 14px; font-weight: 700; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      transition: all 0.2s; border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.05); color: #a0a0a0;
+    }
+    .track-btn.active { background: #ccff00; color: #111; border-color: #ccff00; }
+    .track-btn svg { width: 14px; height: 14px; fill: currentColor; }
+    .player-box {
+      position: relative; background: linear-gradient(135deg,#1e1e1e,#161616);
+      border: 1px solid rgba(204,255,0,0.20); border-radius: 20px;
+      padding: 24px; margin-bottom: 20px; overflow: hidden;
+    }
+    .player-glow {
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 200px; height: 50px; background: rgba(204,255,0,0.08); filter: blur(30px);
+    }
+    .player-label {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 16px; position: relative; z-index: 1;
+      font-size: 14px; font-weight: 700;
+    }
+    .player-label svg { width: 16px; height: 16px; color: var(--yellow); }
+    .wave-bars {
+      display: flex; align-items: center; justify-content: center;
+      gap: 3px; height: 40px; margin-bottom: 12px;
+    }
+    .wave-bar { width: 3px; border-radius: 2px; background: rgba(255,255,255,0.12); }
+    .player-hint { font-size: 13px; color: var(--muted); text-align: center; }
+    .player-iframe { border: none; border-radius: 12px; width: 100%; display: block; }
+    .demo-testimonial {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 20px; padding: 20px;
+      display: flex; gap: 16px; align-items: flex-start;
+    }
+    .demo-avatar {
+      width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg,#ec4899,#9333ea);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: 16px;
+    }
+
+    /* ── PRICING ── */
+    .pricing-card {
+      background: linear-gradient(to bottom, #1a1a1a, #141414);
+      border: 1px solid rgba(204,255,0,0.20); border-radius: 28px;
+      padding: 36px 28px; position: relative; overflow: hidden;
+    }
+    .pricing-glow {
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 240px; height: 80px; background: rgba(204,255,0,0.08); filter: blur(40px);
+    }
+    .price-row { display: flex; align-items: flex-end; justify-content: center; gap: 20px; margin-bottom: 24px; }
+    .price-old { text-align: center; }
+    .price-old .label { font-size: 13px; color: var(--muted); margin-bottom: 4px; }
+    .price-old .val   { font-size: 2rem; font-weight: 900; color: var(--muted); text-decoration: line-through; }
+    .price-arrow { font-size: 1.5rem; font-weight: 900; color: var(--muted); padding-bottom: 4px; }
+    .price-new { text-align: center; }
+    .price-new .label { font-size: 13px; color: var(--yellow); font-weight: 700; margin-bottom: 4px; }
+    .price-new .val   { font-size: 3.5rem; font-weight: 900; line-height: 1; }
+    .price-new .val span { color: var(--yellow); }
+    .discount-badge {
+      background: rgba(239,68,68,0.20); border: 1px solid rgba(239,68,68,0.40);
+      color: #fca5a5; font-size: 12px; font-weight: 700;
+      padding: 6px 14px; border-radius: 999px;
+      display: inline-block; margin-bottom: 28px; text-align: center; width: 100%;
+    }
+    .includes { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+    .includes li { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; color: #d0d0d0; line-height: 1.5; }
+    .check-circle {
+      width: 20px; height: 20px; border-radius: 50%; flex-shrink: 0; margin-top: 1px;
+      background: rgba(204,255,0,0.15);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .check-circle svg { width: 11px; height: 11px; stroke: var(--yellow); stroke-width: 2.5; fill: none; }
+    .pricing-note { font-size: 12px; color: var(--muted); text-align: center; margin-top: 16px; }
+
+    /* ── GUARANTEE ── */
+    .guarantee-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    @media(min-width:480px){ .guarantee-grid { grid-template-columns: 1fr 1fr; } }
+    .guarantee-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 20px; padding: 28px; text-align: center;
+    }
+    .guarantee-card svg { width: 40px; height: 40px; margin: 0 auto 12px; display: block; }
+    .guarantee-title { font-weight: 900; font-size: 17px; margin-bottom: 8px; }
+    .guarantee-desc  { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* ── CONTACT ── */
+    #contact { text-align: center; }
+    #contact h2 { font-size: clamp(1.5rem,5vw,2rem); font-weight: 900; margin-bottom: 12px; }
+    #contact p  { color: var(--muted); margin-bottom: 28px; }
+    .wa-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: #16a34a; color: #fff; font-weight: 700;
+      font-size: 1.05rem; padding: 16px 32px; border-radius: 20px;
+      text-decoration: none; transition: background 0.2s;
+      box-shadow: 0 6px 30px rgba(22,163,74,0.25);
+    }
+    .wa-btn:hover { background: #15803d; }
+    .wa-btn svg { width: 20px; height: 20px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0a0a0a; border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 48px 20px; text-align: center;
+    }
+    .footer-brand { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 8px; }
+    .footer-brand svg { width: 20px; height: 20px; color: var(--yellow); }
+    .footer-brand span { font-weight: 900; font-size: 1.2rem; }
+    .footer-tagline { font-style: italic; color: var(--muted); font-size: 14px; margin-bottom: 24px; }
+    .footer-copy { font-size: 12px; color: #444; }
+
+    /* ── SECTION HEADERS ── */
+    .section-tag { font-size: 12px; font-weight: 700; color: var(--yellow); text-transform: uppercase; letter-spacing: 0.12em; display: block; margin-bottom: 8px; }
+    .section-h2  { font-size: clamp(1.6rem,5vw,2.4rem); font-weight: 900; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 0; }
+    .section-center { text-align: center; margin-bottom: 48px; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { opacity: 0; }
+    .fade-up.visible { animation: fadeUp 0.6s ease forwards; }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:380px){
+      .buy-btn { font-size: 0.9rem; padding: 16px 20px; }
+      .digit-num { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+<section id="hero">
+  <div class="bg-img">
+    <img src="https://media.base44.com/images/public/69d43f24d48136041e199867/dbaf5edf2_generated_image.png" alt="" />
+  </div>
+  <div class="glow"></div>
+  <div class="content">
+    <div class="badge">
+      ★ Música Profissional para sua Empresa ★
+    </div>
+    <h1>Sua Marca na <span class="text-yellow">Boca do Povo</span> 🎶</h1>
+    <p class="subtitle">
+      Transformamos sua empresa em uma música que
+      <strong style="color:#fff">gruda na cabeça</strong> das pessoas.
+    </p>
+    <div class="use-cases">
+      <div class="use-case-pill">📣 Propagandas</div>
+      <div class="use-case-pill">📱 Redes Sociais</div>
+      <div class="use-case-pill">🎯 Anúncios</div>
+      <div class="use-case-pill">🚀 Divulgação</div>
+    </div>
+    <button class="buy-btn" onclick="window.open('https://pay.kiwify.com.br/spRDui3','_blank')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      COMPRAR MINHA MÚSICA AGORA
+    </button>
+
+    <div class="urgency-bar">
+      <div class="urgency-part">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fca5a5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span class="urgency-red"><span class="urgency-white" id="viewer-count">17</span> pessoas estão vendo agora</span>
+      </div>
+      <div class="urgency-divider"></div>
+      <div class="urgency-part">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fdba74" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <span class="urgency-orange">Últimas <span class="urgency-white">5</span> vagas promocionais</span>
+      </div>
+    </div>
+
+    <div class="countdown-wrap" style="margin-top:20px">
+      <p class="countdown-label">⚡ Promoção termina em:</p>
+      <div class="countdown-digits">
+        <div class="digit-block">
+          <div class="digit-box"><span class="digit-num" id="cd-h">23</span></div>
+          <span class="digit-lbl">HRS</span>
+        </div>
+        <span class="digit-sep">:</span>
+        <div class="digit-block">
+          <div class="digit-box"><span class="digit-num" id="cd-m">59</span></div>
+          <span class="digit-lbl">MIN</span>
+        </div>
+        <span class="digit-sep">:</span>
+        <div class="digit-block">
+          <div class="digit-box"><span class="digit-num" id="cd-s">12</span></div>
+          <span class="digit-lbl">SEG</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     DEMO
+══════════════════════════════════════════ -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-center fade-up">
+      <span class="section-tag">🎵 Demonstração real</span>
+      <h2 class="section-h2">Ouça agora como fica <span class="text-yellow">seu jingle</span></h2>
+      <p class="text-muted" style="margin-top:12px;font-size:15px">Exemplos reais produzidos pela Marca Viral. Clique e escute aqui mesmo.</p>
+    </div>
+
+    <div class="track-btns fade-up">
+      <button class="track-btn" onclick="selectTrack(0,this)">
+        <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Jingle 1
+      </button>
+      <button class="track-btn" onclick="selectTrack(1,this)">
+        <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Jingle 2
+      </button>
+      <button class="track-btn" onclick="selectTrack(2,this)">
+        <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Jingle 3
+      </button>
+    </div>
+
+    <div class="player-box fade-up">
+      <div class="player-glow"></div>
+      <div class="player-label">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#ccff00"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        <span id="track-label">Selecione um jingle acima</span>
+      </div>
+      <div id="player-content">
+        <div class="wave-bars" id="wave-idle"></div>
+        <p class="player-hint">👆 Escolha um jingle para ouvir</p>
+      </div>
+    </div>
+
+    <div class="demo-testimonial fade-up">
+      <div class="demo-avatar">M</div>
+      <div>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p style="font-size:14px;color:#d0d0d0;font-style:italic;margin-bottom:4px">"Meus clientes ficaram me perguntando onde fiz essa música. Valeu muito a pena, profissional demais!"</p>
+        <p style="font-size:12px;color:#666">— Mariana S., Estética</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     BENEFITS
+══════════════════════════════════════════ -->
+<section class="section" style="background:#111111">
+  <div class="container">
+    <div class="section-center fade-up">
+      <h2 class="section-h2">Por que uma música para sua empresa <span class="text-yellow">funciona tanto?</span></h2>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card fade-up">
+        <div class="benefit-emoji">🧠</div>
+        <h3 class="benefit-title">Gruda na cabeça das pessoas</h3>
+        <p class="benefit-desc">Músicas são lembradas por anos. Sua marca entra na memória dos clientes sem esforço.</p>
+      </div>
+      <div class="benefit-card fade-up">
+        <div class="benefit-emoji">📢</div>
+        <h3 class="benefit-title">Facilita a divulgação</h3>
+        <p class="benefit-desc">Uma música profissional dá credibilidade e faz sua marca parecer grande, mesmo sendo pequena.</p>
+      </div>
+      <div class="benefit-card fade-up">
+        <div class="benefit-emoji">📱</div>
+        <h3 class="benefit-title">Perfeito para vídeos e redes sociais</h3>
+        <p class="benefit-desc">Use nos seus Reels, Stories, TikToks, anúncios e divulgações. Chama atenção de qualquer jeito.</p>
+      </div>
+      <div class="benefit-card fade-up">
+        <div class="benefit-emoji">🔥</div>
+        <h3 class="benefit-title">Faz sua empresa ser lembrada</h3>
+        <p class="benefit-desc">Quem ouve a música da sua empresa uma vez, não esquece mais. É marketing que funciona 24h.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     HOW IT WORKS
+══════════════════════════════════════════ -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-center fade-up">
+      <span class="section-tag">Processo simples</span>
+      <h2 class="section-h2">Simples e <span class="text-yellow">rápido</span></h2>
+    </div>
+    <div class="steps">
+      <div class="step fade-up">
+        <div class="step-num">01</div>
+        <div>
+          <h3 class="step-title">1️⃣ Você compra o pacote</h3>
+          <p class="step-desc">Clique no botão comprar e finalize seu pedido com segurança.</p>
+        </div>
+      </div>
+      <div class="step fade-up">
+        <div class="step-num">02</div>
+        <div>
+          <h3 class="step-title">2️⃣ Recebemos suas informações</h3>
+          <p class="step-desc">Nome da empresa, o que vende, slogan e detalhes para criar sua música.</p>
+        </div>
+      </div>
+      <div class="step fade-up">
+        <div class="step-num">03</div>
+        <div>
+          <h3 class="step-title">3️⃣ Criamos sua música personalizada</h3>
+          <p class="step-desc">Produção profissional entregue em até 48 horas, pronta para usar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     TESTIMONIALS
+══════════════════════════════════════════ -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-center fade-up">
+      <span class="section-tag">Depoimentos</span>
+      <h2 class="section-h2">Quem já fez <span class="text-yellow">aprovou</span></h2>
+    </div>
+    <div class="testimonials">
+      <div class="testi-card fade-up">
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testi-text">"Minha loja ganhou muito mais visibilidade depois da música. Todo mundo comenta e pergunta onde fizemos. Foi o melhor investimento em marketing."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8)">C</div>
+          <div>
+            <p class="testi-name">— Carlos M.</p>
+            <p class="testi-role">Loja de Roupas</p>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card fade-up">
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testi-text">"Ficou profissional demais. Usei nos anúncios e deu muito resultado. Clientes novos dizem que viram meu anúncio em todo lugar. Super recomendo!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#ec4899,#9333ea)">M</div>
+          <div>
+            <p class="testi-name">— Mariana S.</p>
+            <p class="testi-role">Estética</p>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card fade-up">
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testi-text">"A música ficou na cabeça dos clientes. Foi uma das melhores ideias de marketing que já tive. O restaurante ficou cheio no final de semana depois."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#f97316,#dc2626)">R</div>
+          <div>
+            <p class="testi-name">— Roberto A.</p>
+            <p class="testi-role">Restaurante</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SCARCITY
+══════════════════════════════════════════ -->
+<section class="section" style="background:#111111;padding-top:40px;padding-bottom:40px">
+  <div class="container">
+    <div class="scarcity-box fade-up">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <div>
+        <h3 class="scarcity-title">⚠️ Atenção</h3>
+        <p class="scarcity-text">Devido ao processo criativo, conseguimos produzir <strong style="color:#fdba74">apenas algumas músicas por semana</strong>. Garanta sua vaga enquanto ainda há disponibilidade.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     PRICING
+══════════════════════════════════════════ -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-center fade-up">
+      <div class="badge" style="margin-bottom:16px">
+        <svg viewBox="0 0 24 24" fill="#ccff00" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        Oferta especial de lançamento
+      </div>
+      <h2 class="section-h2">Preço <span class="text-yellow">promocional</span></h2>
+    </div>
+
+    <div class="pricing-card fade-up">
+      <div class="pricing-glow"></div>
+      <div style="position:relative;z-index:1">
+        <div class="price-row">
+          <div class="price-old">
+            <p class="label">De</p>
+            <p class="val">R$497</p>
+          </div>
+          <div class="price-arrow">→</div>
+          <div class="price-new">
+            <p class="label">Por apenas</p>
+            <p class="val">R$<span>197</span></p>
+          </div>
+        </div>
+        <div class="discount-badge">🔥 60% de desconto — Promoção válida apenas para os próximos clientes</div>
+        <ul class="includes">
+          <li>
+            <div class="check-circle"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            Jingle 100% personalizado com o nome da sua empresa
+          </li>
+          <li>
+            <div class="check-circle"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            Produção profissional com letra e melodia
+          </li>
+          <li>
+            <div class="check-circle"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            Entrega em até 48 horas
+          </li>
+          <li>
+            <div class="check-circle"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            Arquivo em MP3 pronto para usar
+          </li>
+          <li>
+            <div class="check-circle"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            Perfeito para anúncios, redes sociais e divulgação
+          </li>
+        </ul>
+        <button class="buy-btn" onclick="window.open('https://pay.kiwify.com.br/spRDui3','_blank')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          COMPRAR MINHA MÚSICA AGORA
+        </button>
+        <p class="pricing-note">Após o pagamento nossa equipe entrará em contato para coletar as informações da sua música.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     GUARANTEE
+══════════════════════════════════════════ -->
+<section class="section section-dark" style="padding-top:0">
+  <div class="container">
+    <div class="guarantee-grid">
+      <div class="guarantee-card fade-up">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        <h3 class="guarantee-title">Compra segura</h3>
+        <p class="guarantee-desc">Pagamento protegido e processado com total segurança.</p>
+      </div>
+      <div class="guarantee-card fade-up">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#facc15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <h3 class="guarantee-title">Atendimento direto</h3>
+        <p class="guarantee-desc">Você recebe atendimento personalizado via WhatsApp do início ao fim.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     CONTACT
+══════════════════════════════════════════ -->
+<section class="section section-alt" id="contact">
+  <div class="container">
+    <h2>Dúvidas?</h2>
+    <p>Fale diretamente com nossa equipe pelo WhatsApp.</p>
+    <a class="wa-btn" href__="https://wa.me/5562982260609" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      📲 62 98226-0609
+    </a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer>
+  <div class="footer-brand">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+    <span>Marca Viral</span>
+  </div>
+  <p class="footer-tagline">Sua marca na boca do povo.</p>
+  <p class="footer-copy" id="footer-year"></p>
+</footer>
+
+<script>
+  // ── FOOTER YEAR ──
+  document.getElementById('footer-year').textContent =
+    '© ' + new Date().getFullYear() + ' Marca Viral. Todos os direitos reservados.';
+
+  // ── COUNTDOWN ──
+  (function() {
+    var KEY = 'mv_countdown_end';
+    var stored = localStorage.getItem(KEY);
+    var endTime;
+    if (stored) {
+      var diff = parseInt(stored) - Date.now();
+      if (diff > 0) { endTime = parseInt(stored); }
+    }
+    if (!endTime) {
+      var duration = 23 * 3600 + 59 * 60 + 12;
+      endTime = Date.now() + duration * 1000;
+      localStorage.setItem(KEY, endTime);
+    }
+    function tick() {
+      var left = Math.max(0, Math.floor((endTime - Date.now()) / 1000));
+      var h = String(Math.floor(left / 3600)).padStart(2,'0');
+      var m = String(Math.floor((left % 3600) / 60)).padStart(2,'0');
+      var s = String(left % 60).padStart(2,'0');
+      document.getElementById('cd-h').textContent = h;
+      document.getElementById('cd-m').textContent = m;
+      document.getElementById('cd-s').textContent = s;
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+
+  // ── URGENCY BAR ──
+  (function() {
+    var viewers = 17;
+    function update() {
+      var delta = Math.random() > 0.5 ? 1 : -1;
+      viewers = Math.min(Math.max(viewers + delta, 12), 23);
+      document.getElementById('viewer-count').textContent = viewers;
+    }
+    setInterval(update, 4000);
+  })();
+
+  // ── DEMO PLAYER ──
+  var TRACKS = [
+    { id: '1_mhx7ezgTqyP5gMWTJoOSyqvzH-kuils', label: 'Jingle 1' },
+    { id: '16mBoC-I512m9pJizPcB2-0KMRwzKWveH',  label: 'Jingle 2' },
+    { id: '1wQqKNQ2x0rSiQjfs7xBF0m9vDX7ZV-k9',  label: 'Jingle 3' },
+  ];
+
+  // build idle wave bars
+  (function() {
+    var container = document.getElementById('wave-idle');
+    for (var i = 0; i < 32; i++) {
+      var h = Math.abs(Math.sin(i * 0.5) * 60 + Math.sin(i * 1.1) * 30) + 10;
+      var bar = document.createElement('div');
+      bar.className = 'wave-bar';
+      bar.style.height = h + '%';
+      container.appendChild(bar);
+    }
+  })();
+
+  function selectTrack(index, btn) {
+    // update buttons
+    document.querySelectorAll('.track-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+
+    // update label
+    document.getElementById('track-label').textContent = TRACKS[index].label;
+
+    // update player
+    var content = document.getElementById('player-content');
+    var iframe = document.createElement('iframe');
+    iframe.src = 'https://drive.google.com/file/d/' + TRACKS[index].id + '/preview';
+    iframe.width = '100%';
+    iframe.height = '80';
+    iframe.allow = 'autoplay';
+    iframe.className = 'player-iframe';
+    iframe.style.colorScheme = 'dark';
+    content.innerHTML = '';
+    content.appendChild(iframe);
+  }
+
+  // ── SCROLL ANIMATIONS ──
+  (function() {
+    var els = document.querySelectorAll('.fade-up');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(function(el) { observer.observe(el); });
+  })();
+</script>
+</body>
+</html>
